@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>test_camera_robot_calibration</name>
+  <version>0.0.0</version>
+  <description>The test_camera_robot_calibration package</description>
+
+  <maintainer email="ghanim@todo.todo">ghanim</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>camera_robot_calibration</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>rgbd_utils</build_depend>
+
+  <run_depend>camera_robot_calibration</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rospy</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>rgbd_utils</run_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
