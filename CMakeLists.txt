@@ -28,7 +28,7 @@ catkin_package(
 )
 
 include_directories(
-  include /home/ghanim/git/catkin_ws/install/include/
+  include /home/mukhtar/git/catkin_ws/install/include/
   ${catkin_INCLUDE_DIRS}
 )
 
