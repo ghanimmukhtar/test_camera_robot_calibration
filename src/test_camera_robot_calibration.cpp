@@ -8,13 +8,19 @@ int main(int argc, char **argv)
     camera_robot_calibration::CALIBRATOR::Ptr my_calibrator;
     my_calibrator.reset(new camera_robot_calibration::CALIBRATOR);
 
+    std::string robot_name = std::string(my_calibrator->get_global_parameters().get_parameters()["robot"]);
+    std::string camera_name = std::string(my_calibrator->get_global_parameters().get_parameters()["camera"]);
+
     while(ros::ok() &&
           my_calibrator->get_global_parameters().get_number_of_validated_points() <
           my_calibrator->get_global_parameters().get_number_of_points()){
 
         ROS_WARN("TEST: Inside the while loop!!");
         ros::spinOnce();
-        my_calibrator->acquire_points();
+        if(strcmp(camera_name.c_str(), "optitrack") == 0)
+            my_calibrator->acquire_optitrack_points();
+        else
+            my_calibrator->acquire_points();
 
         ROS_INFO("press ENTER for next point ...");
         std::cin.ignore();
