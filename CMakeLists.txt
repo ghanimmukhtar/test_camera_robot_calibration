@@ -12,7 +12,8 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(Boost REQUIRED COMPONENTS system )
 find_package(OpenCV REQUIRED COMPONENTS features2d nonfree)
 find_package(PCL 1.7 REQUIRED)
-find_package(Eigen3 REQUIRED)
+find_package(PkgConfig)
+pkg_search_module(Eigen3 REQUIRED eigen3)
 
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
@@ -21,7 +22,7 @@ add_definitions(${PCL_DEFINITIONS})
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fPIC")
 
 catkin_package(
-  INCLUDE_DIRS include
+ # INCLUDE_DIRS include
 #  LIBRARIES test_camera_robot_calibration
 #  CATKIN_DEPENDS camera_robot_calibration roscpp rospy tf
 #  DEPENDS system_lib

@@ -11,19 +11,22 @@ int main(int argc, char **argv)
     std::string robot_name = std::string(my_calibrator->get_global_parameters().get_parameters()["robot"]);
     std::string camera_name = std::string(my_calibrator->get_global_parameters().get_parameters()["camera"]);
 
+    ros::Rate my_rate(1);
     while(ros::ok() &&
           my_calibrator->get_global_parameters().get_number_of_validated_points() <
           my_calibrator->get_global_parameters().get_number_of_points()){
 
         ROS_WARN("TEST: Inside the while loop!!");
         ros::spinOnce();
+        my_calibrator->show_image();
         if(strcmp(camera_name.c_str(), "optitrack") == 0)
             my_calibrator->acquire_optitrack_points();
         else
             my_calibrator->acquire_points();
 
-        ROS_INFO("press ENTER for next point ...");
-        std::cin.ignore();
+        my_rate.sleep();
+        //ROS_INFO("press ENTER for next point ...");
+        //std::cin.ignore();
     }
 
     bool result = my_calibrator->solve_for_transformation_matrix();
