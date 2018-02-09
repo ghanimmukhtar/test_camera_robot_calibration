@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 2.8.3)
 project(test_camera_robot_calibration)
 
 find_package(catkin REQUIRED COMPONENTS
-  camera_robot_calibration
+  crustcrawler_mover_utils
   roscpp
   rospy
   tf
   rgbd_utils
+  camera_robot_calibration
 )
 
 find_package(Boost REQUIRED COMPONENTS system )
@@ -35,3 +36,6 @@ include_directories(
 
 add_executable(test_camera_robot_calibration src/test_camera_robot_calibration.cpp )
 target_link_libraries(test_camera_robot_calibration /usr/local/lib/libaruco.so ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+
+add_executable(automatic_calibration_test src/automatic_calibration_test.cpp )
+target_link_libraries(automatic_calibration_test /usr/local/lib/libaruco.so ${catkin_LIBRARIES} ${PCL_LIBRARIES})

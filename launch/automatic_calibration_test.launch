@@ -1,0 +1,9 @@
+<launch>  
+  <rosparam command="load" file="$(find test_camera_robot_calibration)/launch/params/global_params.yml" ns="calibration_parameters"/>
+  <param name="camera_file_path" value="$(find test_camera_robot_calibration)/data/camera_param_baxter.xml" />
+  <rosparam command="load" file="$(find test_camera_robot_calibration)/launch/params/planner_params.yaml" ns="planner_parameters" />
+  <!-- <param name="camera_file_path" value="$(find test_camera_robot_calibration)/data/camera_param_crustcrawler.xml" /> -->
+
+  <!-- <node name="automatic_calibration_test_node" pkg="test_camera_robot_calibration" type="automatic_calibration_test" output="screen" args="launch-prefix= gdb -ex run -r-args"/> -->
+  <node name="automatic_calibration_test_node" pkg="test_camera_robot_calibration" type="automatic_calibration_test" output="screen"/> 
+</launch>
