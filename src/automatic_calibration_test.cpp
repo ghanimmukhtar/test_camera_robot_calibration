@@ -1,4 +1,4 @@
-#include <camera_robot_calibration.hpp>
+//#include <camera_robot_calibration.hpp>
 #include <crustcrawler_mover_utils/crustcrawler_mover_utils/crustcrawler_mover.hpp>
 //#include <camera_robot_calibration/camera_robot_calibration.hpp>
 //#include <crustcrawler_mover_utils/crustcrawler_mover.hpp>
@@ -75,8 +75,8 @@ int main(int argc, char **argv)
 
         }
         my_rate.sleep();
-        ROS_INFO("press ENTER for next point ...");
-        std::cin.ignore();
+        //ROS_INFO("press ENTER for next point ...");
+        //std::cin.ignore();
     }
     return 0;
 }
