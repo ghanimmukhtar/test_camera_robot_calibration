@@ -25,4 +25,4 @@ This is a ROS package that uses [camera_robot_calibration](https://github.com/ro
   - First way we can fix the QR code marker to robot End Effector and let the mover class move the marker randomly in front of the vision sensor till the calibration finishes. In this case we need this class to be installed.
   - Second way is to fix the marker but manually move the marker in front of the vision sensor till the calibration is done. If we want to use this mehtod we don't need this library, and we just need to comment the compilation of the node *automatic_calibration_test.cpp* and the dependency on this library as well in the *CMakeLists.txt* file.
   
-  More explanation in the Tutorial
+  More explanation in the *[Tutorial](https://github.com/ghanimmukhtar/test_camera_robot_calibration/wiki/Tutorial)*.
