@@ -13,14 +13,21 @@ int main(int argc, char **argv)
     _crustcrawler_mover.reset(new crustcrawler_mover::CRUSTCRAWLER_Mover(n));
 
     double  x_min = 0.0, x_max = 0.4,
-            y_min = -0.4, y_max = 0.4,
-            z_min = 0.0, z_max = 0.6;
+            y_min = -0.25, y_max = 0.25,
+            z_min = 0.15, z_max = 0.6;
 
     geometry_msgs::Pose target;
-    target.orientation.w = 0.8;
-    target.orientation.x = 0.0;
-    target.orientation.y = 0.6;
-    target.orientation.z = 0.0;
+    //vertical QR code placement
+    //target.orientation.w = 0.8;
+    //target.orientation.x = 0.0;
+    //target.orientation.y = 0.6;
+    //target.orientation.z = 0.0;
+
+    //horizontal placement
+    target.orientation.w = 0.294;
+    target.orientation.x = 0.0046;
+    target.orientation.y = 0.955;
+    target.orientation.z = 0.015;
 
     tf::Quaternion _q;
     geometry_msgs::PoseStamped front_pose;
@@ -63,6 +70,7 @@ int main(int argc, char **argv)
         bool found_plan = false;
         moveit::planning_interface::MoveGroup::Plan the_plan;
         while(!found_plan){
+            //srand(time(NULL));
             target.position.x = (x_max - x_min) * (double)rand() / RAND_MAX + x_min;
             target.position.y = (y_max - y_min) * (double)rand() / RAND_MAX + y_min;
             target.position.z = (z_max - z_min) * (double)rand() / RAND_MAX + z_min;
@@ -75,8 +83,8 @@ int main(int argc, char **argv)
 
         }
         my_rate.sleep();
-        //ROS_INFO("press ENTER for next point ...");
-        //std::cin.ignore();
+        ROS_INFO("press ENTER for next point ...");
+        std::cin.ignore();
     }
     return 0;
 }
